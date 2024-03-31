@@ -1,0 +1,7 @@
+img#logo {
+	border: 1px solid var(--alternate-color);
+	border-radius: 5px;
+	height: 55px;
+	padding: 5px;
+	width: 55px;
+}

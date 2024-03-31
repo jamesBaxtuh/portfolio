@@ -1,13 +1,459 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* global.css */
+:root {
+	/* Color Palette */
+	--primary-gradient-purple: rgb(131 58 180);
+	--primary-gradient-red: rgb(253 29 29);
+	--primary-gradient-yellow: rgb(252 176 69);
+	--primary-gradient-highlight: rgb(245 85 59);
+	--site-black: rgb(28 27 35);
+	--shape-1-color-1: rgb(225 0 85 / 0.5);
+	--shape-1-color-2: rgb(225 150 95);
+	--confetti-blue: #26ccff;
+	--confetti-purple: #a25afd;
+	--confetti-red: #ff5e7e;
+	--confetti-green: #88ff5a;
+	--confetti-yellow: #fcff42;
+	--confetti-orange: #ffa62d;
+	--confetti-magenta: #ff36ff;
+	/* Font Specific */
+	--rs-font-family: 'Roboto Slab', serif;
+	--rs-font-weight: 200;
+	--rs-font-style: normal;
+	--rs-font-optical-sizing: auto;
+	/* React-Toastify */
+	--toastify-color-light: #fff;
+	--toastify-color-dark: #121212;
+	--toastify-color-info: #3498db;
+	--toastify-color-success: #07bc0c;
+	--toastify-color-warning: #f1c40f;
+	--toastify-color-error: #e74c3c;
+	--toastify-color-transparent: rgba(255, 255, 255, 0.7);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Variable  */
+[data-theme='dark'] {
+	--primary-color: rgb(27 26 34);
+	--primary-color2: rgb(17 16 21 / 0.2);
+	--alternate-color: rgb(240 242 244);
+	--transparent-nav: rgb(27 26 34 / 0.9);
+	--transparent-nav-li-bg: rgb(27 26 34);
+	--spotlight-bg: rgb(17 16 21);
+	--spotlight-bg2: rgb(27 26 34 / 0.8);
+	--circle-one: rgb(65 172 93 / 0.35);
+	--circle-two: rgb(25 119 227 / 0.25);
+	--shape-2-color-1: rgb(55 0 85 / 0.5);
+	--shape-2-color-2: rgb(75 150 95 /0.5);
+	--home-intro-text: var(--alternate-color);
+}
+
+[data-theme='light'] {
+	--primary-color: rgb(241 241 241);
+	--primary-color2: rgb(252 252 252 / 0.5);
+	--alternate-color: rgb(51 51 51);
+	--transparent-nav: rgb(255 255 255 / 0.5);
+	/* --transparent-nav-li-bg: rgb(240 242 244); */
+	--transparent-nav-li-bg: rgb(250 250 250);
+	--spotlight-bg: rgb(255 255 255 / 0.9);
+	--spotlight-bg2: rgb(255 255 255 / 0.5);
+	--circle-one: rgb(179 76 159 / 0.4);
+	--circle-two: rgb(25 119 227 / 0.25);
+	--shape-2-color-1: rgb(166 193 238);
+	--shape-2-color-2: rgb(251 194 235);
+	--home-intro-text: var(--site-black);
+}
+
+* {
+	box-sizing: border-box;
+	font-family: var(--rs-font-family);
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Toast Styling */
+.Toastify__toast--default {
+	background: white;
+	color: black;
+	border-radius: 8px;
+	border: 1px solid #e0e0e0;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Toastify__close-button {
+	color: inherit;
+	opacity: 1;
+}
+
+.Toastify__close-button:hover {
+	opacity: 0.5;
+}
+
+.Toastify__progress-bar--success {
+	border-top: 2px solid #2c662d;
+}
+
+.Toastify__progress-bar--warning {
+	border-top: 2px solid var(--primary-gradient-highlight);
+}
+
+.Toastify__toast--success {
+	background: #e9f6ec !important; /* A light green that complements the 'Find Easter Egg' button */
+	color: #2c662d !important; /* A darker green for readable text */
+}
+
+.Toastify__toast--warning {
+	background: #fff4e5 !important; /* A light orange that matches the 'View Project' button */
+	color: var(
+		--primary-gradient-highlight
+	) !important; /* A brownish-orange for the text */
+}
+
+/* ======== App-Wide Styles ======== */
+.c-primary {
+	color: var(--primary-color);
+}
+
+.c-alternate {
+	color: var(--alternate-color);
+}
+
+.c-highlight {
+	color: var(--primary-gradient-highlight);
+}
+
+.bg-primary {
+	background-color: var(--primary-color);
+}
+
+.bg-alternate {
+	background-color: var(--alternate-color);
+}
+
+.bg-gradient {
+	background: linear-gradient(
+		90deg,
+		rgb(131 58 180) 0%,
+		rgb(253 29 29) 50%,
+		rgb(252 176 69) 100%
+	);
+}
+
+/* === Display === */
+.d-block {
+	display: inline-block;
+}
+
+.d-iblock {
+	display: inline-block;
+}
+
+/* Opacity */
+.visible {
+	opacity: 1;
+}
+
+.hidden {
+	opacity: 0;
+}
+
+/* Position */
+.pos-rel {
+	position: relative;
+}
+
+.pos-abs {
+	position: absolute;
+}
+
+.pos-fix {
+	position: fixed;
+}
+
+.inset-0 {
+	inset: 0;
+}
+
+.top-0 {
+	top: 0;
+}
+
+.right-0 {
+	right: 0;
+}
+
+.bottom-0 {
+	bottom: 0;
+}
+
+.left-0 {
+	left: 0;
+}
+
+/* Overflow */
+.of-hidden {
+	overflow: hidden;
+}
+
+.of-scroll {
+	overflow: scroll;
+}
+
+.ofx-hidden {
+	overflow-x: hidden;
+}
+
+.ofx-scroll {
+	overflow-x: scroll;
+}
+
+.ofy-hidden {
+	overflow-y: hidden;
+}
+
+.ofy-scroll {
+	overflow-y: scroll;
+}
+
+/* === Flexbox === */
+.d-flex {
+	display: flex;
+}
+
+.fd-col {
+	flex-direction: column;
+}
+
+/* Justify Content */
+.jc-center {
+	justify-content: center;
+}
+
+.jc-fstart {
+	justify-content: flex-start;
+}
+
+.jc-fend {
+	justify-content: flex-end;
+}
+
+.jc-sbetween {
+	justify-content: space-between;
+}
+
+.jc-saround {
+	justify-content: space-around;
+}
+
+/* Align-Items */
+.ai-center {
+	align-items: center;
+}
+
+.ai-fstart {
+	align-items: flex-start;
+}
+
+.ai-fend {
+	align-items: flex-end;
+}
+
+.ai-baseline {
+	align-items: baseline;
+}
+
+/* Align-Self */
+.as-center {
+	align-self: center;
+}
+
+.as-fstart {
+	align-self: flex-start;
+}
+
+.as-fend {
+	align-self: flex-end;
+}
+
+.as-baseline {
+	align-self: baseline;
+}
+
+.f-grow-0 {
+	flex-grow: 0;
+}
+
+.f-grow-1 {
+	flex-grow: 1;
+}
+
+.f-grow-2 {
+	flex-grow: 2;
+}
+
+.fw-wrap {
+	flex-wrap: wrap;
+}
+
+/* === Margin  === */
+.m-auto {
+	margin: auto;
+}
+
+.m-0 {
+	margin: 0;
+}
+
+/* Top/Bottom */
+.mt-auto {
+	margin-top: auto;
+}
+
+.mb-auto {
+	margin-bottom: auto;
+}
+
+.mbl-auto {
+	margin-block: auto;
+}
+
+.mt-0 {
+	margin-top: 0;
+}
+
+.mb-0 {
+	margin-bottom: 0;
+}
+
+.mbl-0 {
+	margin-block: 0;
+}
+
+/* Left/Right */
+.ml-auto {
+	margin-left: auto;
+}
+
+.mr-auto {
+	margin-right: auto;
+}
+
+.mi-auto {
+	margin-inline: auto;
+}
+
+.ml-0 {
+	margin-left: 0;
+}
+
+.mr-0 {
+	margin-right: 0;
+}
+
+.mi-0 {
+	margin-inline: 0;
+}
+
+/* === Padding ===  */
+.p-auto {
+	padding: auto;
+}
+
+/* Top/Bottom */
+.pt-auto {
+	padding-top: auto;
+}
+
+.pb-auto {
+	padding-bottom: auto;
+}
+
+.pbl-auto {
+	padding-block: auto;
+}
+
+/* Left/Right */
+.pl-auto {
+	padding-left: auto;
+}
+
+.pr-auto {
+	padding-right: auto;
+}
+
+.pi-auto {
+	padding-inline: auto;
+}
+
+/* Height */
+.h-100 {
+	height: 100%;
+}
+
+/* Width */
+.w-100 {
+	width: 100%;
+}
+
+.max-w-90 {
+	max-width: 90vw;
+}
+
+/* === Text === */
+.ta-center {
+	text-align: center;
+}
+
+.ta-right {
+	text-align: right;
+}
+
+.td-none {
+	text-decoration: none;
+}
+
+/* Font-Weight */
+.fw-100 {
+	font-weight: 100;
+}
+
+.fw-200 {
+	font-weight: 200;
+}
+
+.fw-300 {
+	font-weight: 300;
+}
+
+.fw-400 {
+	font-weight: 400;
+}
+
+.fw-500 {
+	font-weight: 500;
+}
+
+.fw-600 {
+	font-weight: 600;
+}
+
+.cursor-p {
+	cursor: pointer;
+}
+
+.border-50 {
+	border-radius: 50%;
+}
+
+#accessibilityBtn {
+	top: 20;
+	right: 20;
+	left: unset;
+	bottom: unset;
 }

@@ -1,0 +1,54 @@
+header {
+	align-items: center;
+	display: flex;
+	justify-content: space-around;
+	min-height: 100px;
+	max-height: 15vh;
+	padding: 10px 5vw;
+	transition: transform 0.3s ease-in-out;
+	width: 100%;
+}
+
+header.fixed {
+	background-color: var(--transparent-nav);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	min-width: 100%;
+	opacity: 0;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+}
+
+header.fixed.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+header.fixed:not(.visible) {
+	transform: translateY(-100%);
+}
+
+header.fixed nav li {
+	background-color: var(--transparent-nav-li-bg);
+	border: 1px solid rgba(27, 26, 34, 0.8);
+	border-radius: 2px;
+}
+
+header.fixed .navLinkContainer:hover li {
+	background-color: var(--transparent-nav-li-bg);
+	border: 1px solid transparent;
+}
+
+header.fixed #themeButton > div {
+	background-color: var(--transparent-nav-li-bg);
+}
+
+header > nav,
+header > section {
+	min-width: 35%;
+}
+
+#placeHolder {
+	min-height: 100px;
+	max-height: 15vh;
+}

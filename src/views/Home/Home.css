@@ -1,0 +1,43 @@
+/* Top portion of #homeContainer */
+.contentWrapper:first-of-type > * {
+	margin-block: 2.5%;
+}
+
+#homeIntro > * {
+	color: var(--home-intro-text);
+	font-weight: 200;
+	margin: auto;
+	text-align: center;
+}
+
+#homeIntro h1 {
+	font-size: 2.25em;
+}
+
+#homeTopContent {
+	padding: 25px;
+	max-width: 1000px;
+}
+
+#homeTopContent > * {
+	width: 40%;
+}
+
+.homePhotoContainer {
+	min-width: 55%;
+}
+
+.homePhoto {
+	border: 2px solid rgba(170, 170, 170, 0.5);
+	border-radius: 200px;
+	padding: 15px;
+	width: 80%;
+}
+
+/* 
+.sectionBreak {
+	border-radius: 2.5px;
+	height: 2px;
+	width: 85%;
+}
+ */

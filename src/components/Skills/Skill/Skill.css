@@ -1,0 +1,13 @@
+.skillIconContainer {
+	margin: 2.5%;
+}
+
+.skillIconContainer svg {
+	height: 50px;
+	transition: transform 0.2s ease-in-out;
+	width: 50px;
+}
+
+.skillIconContainer svg:hover {
+	transform: translateY(-2px);
+}

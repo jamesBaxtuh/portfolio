@@ -1,0 +1,13 @@
+#notFound {
+	border-radius: 2.5px;
+	padding: 2.5%;
+	min-height: 40vh;
+}
+
+#notFound h1 {
+	margin: 0;
+}
+
+#notFound a:hover {
+	opacity: 0.7;
+}

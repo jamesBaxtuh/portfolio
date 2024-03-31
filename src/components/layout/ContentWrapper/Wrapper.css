@@ -1,0 +1,9 @@
+.contentWrapper {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.contentWrapper > * {
+	margin-inline: auto;
+}

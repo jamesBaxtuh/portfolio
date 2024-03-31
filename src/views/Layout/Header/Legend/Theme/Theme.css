@@ -1,0 +1,34 @@
+#themeButton {
+	border: none;
+	border-radius: 50%;
+	height: 50px;
+	padding: 1.85px;
+	width: 50px;
+}
+
+#themeButton > div {
+	/* border-radius: 50%; */
+}
+
+.icon {
+	color: var(--primary-gradient-highlight);
+	font-size: 1.3em;
+	position: absolute;
+	transition: transform 0.5s ease-in-out;
+}
+
+.active {
+	transform: translateX(0px);
+}
+
+.inactive {
+	transform: translateX(100px);
+}
+
+.slideIn {
+	transform: translateX(0px);
+}
+
+.slideOut {
+	transform: translateX(-100px);
+}

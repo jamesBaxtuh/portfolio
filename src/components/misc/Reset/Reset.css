@@ -1,0 +1,7 @@
+#resetState > * {
+	height: 100%;
+}
+
+#resetState > div p:last-of-type {
+	margin-inline: 5px;
+}

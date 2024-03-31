@@ -1,0 +1,26 @@
+#socialsContainer {
+	min-width: 25%;
+}
+
+#socialsContainer a {
+	height: 25px;
+	margin: auto 5px;
+	width: 25px;
+}
+
+#socialsContainer svg {
+	font-size: 27.5px;
+	transition: transform 0.2s ease-in-out;
+}
+
+#socialsContainer svg:hover {
+	transform: translateY(-1.5px);
+}
+
+#githubLink:hover {
+	color: rgb(129, 82, 223);
+}
+
+#linkedinLink:hover {
+	color: #0a66c2;
+}

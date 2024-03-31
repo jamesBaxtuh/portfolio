@@ -1,0 +1,24 @@
+time {
+	font-weight: var(--rs-font-weight);
+	padding: 5px;
+}
+
+time > * {
+	margin: 0px;
+}
+
+time p {
+	font-size: 0.9em;
+}
+
+time p:first-child {
+	color: var(--primary-gradient-highlight);
+}
+
+time p:last-child {
+	font-size: 0.8em;
+}
+
+time b {
+	font-size: 1.05em;
+}
