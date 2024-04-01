@@ -1,4 +1,4 @@
-export const HOME_LEFT_STATS = [
+export const HOME_LEFT_CARDS = [
 	{
 		heading: 'Thanks for stopping by',
 		content:
@@ -12,7 +12,7 @@ export const HOME_LEFT_STATS = [
 	},
 ];
 
-export const HOME_RIGHT_STATS = [
+export const HOME_RIGHT_CARDS = [
 	{
 		heading: 'Tech stack',
 		content:

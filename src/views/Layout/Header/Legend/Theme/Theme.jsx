@@ -5,6 +5,9 @@ import { IoMoon as Moon, IoSunny as Sun } from 'react-icons/io5';
 // Contexts
 import { useTheme } from '../../../../../contexts//Theme/ThemeContext';
 
+// Components
+import GradientWrapper from '../../../../../components/common/wrappers/Gradient/Gradient';
+
 // Images and Styles
 import './Theme.css';
 
@@ -49,14 +52,21 @@ export default function Theme() {
 	};
 
 	return (
-		<button
-			id='themeButton'
-			className={`${theme} bg-gradient`}
-			onClick={handleClick}
-			onMouseEnter={onMouseEnter}
-			onMouseLeave={onMouseLeave}
+		<GradientWrapper
+			styles={{
+				borderRadius: '50%',
+				height: '50px',
+				width: '50px',
+				padding: '1.85px',
+			}}
 		>
-			<div className='d-flex jc-center ai-center of-hidden pos-rel h-100 w-100 bg-primary border-50'>
+			<button
+				id='themeButton'
+				className='d-flex jc-center ai-center of-hidden pos-rel h-100 w-100 bg-primary border-50'
+				onClick={handleClick}
+				onMouseEnter={onMouseEnter}
+				onMouseLeave={onMouseLeave}
+			>
 				<Moon
 					className={`moon icon ${theme === 'dark' ? 'active' : 'inactive'} ${
 						slideIn === 'moon' && 'slideIn'
@@ -71,7 +81,7 @@ export default function Theme() {
 					${invisible === 'sun' && 'hidden'}
 					`}
 				/>
-			</div>
-		</button>
+			</button>
+		</GradientWrapper>
 	);
 }

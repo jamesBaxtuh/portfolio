@@ -10,23 +10,20 @@ import { UserProvider } from '../../contexts/User/UserProvider';
 import { ThemeProvider } from '../../contexts/Theme/ThemeProvider';
 
 // Components
+import PageWrapper from '../../components/common/wrappers/Page/Page';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
-import PageTracker from '../../components/misc/PageTracker';
-
-// Images and Styles
-import './Layout.css';
+import PageTracker from '../../components/utility/PageTracker';
+import ScrollToSection from '../../components/utility/ScrollToSection';
 
 export default function Layout() {
 	// useRepositionAccessibilityButton();
 	return (
 		<UserProvider>
 			<PageTracker />
+			<ScrollToSection />
 			<ThemeProvider>
-				<main
-					id='pageContainer'
-					className='d-flex fd-col bg-primary c-alternate'
-				>
+				<PageWrapper>
 					<ToastContainer
 						position='top-center'
 						autoClose={1750}
@@ -43,7 +40,7 @@ export default function Layout() {
 					<Header />
 					<Outlet />
 					<Footer />
-				</main>
+				</PageWrapper>
 			</ThemeProvider>
 		</UserProvider>
 	);

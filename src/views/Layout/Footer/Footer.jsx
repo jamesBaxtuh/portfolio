@@ -1,6 +1,6 @@
 // Utilities and Constants
-import { github, linkedin, upwork } from '../../../data/misc/socialsData';
-import { findEgg } from '../../../utils/userContext/eggUtils';
+import { GITHUB, LINKEDIN, UPWORK } from '../../../data/misc/socialsData';
+import { findEgg } from '../../../utils/contexts/user/eggUtils';
 
 // Contexts
 import { useUserContext } from '../../../contexts/User/UserContext';
@@ -8,9 +8,11 @@ import { useUserContext } from '../../../contexts/User/UserContext';
 // Components
 import Socials from '../../../components/Socials/Socials';
 import Reset from '../../../components/misc/Reset/Reset';
-import Divider from '../../../components/misc/Divider';
+import Divider from '../../../components/common/Divider';
+import Vault from '../../../components/misc/Vault/Vault';
 import EasterEggs from '../../../components/EasterEggs/Eggs/Eggs';
 import Logo from '../Header/Logo/Logo';
+import GradientWrapper from '../../../components/common/wrappers/Gradient/Gradient';
 
 // Images and Styles
 import './Footer.css';
@@ -26,15 +28,24 @@ export default function Footer() {
 	};
 
 	return (
-		<footer className='bg-gradient mt-auto'>
-			<div className='d-flex bg-primary'>
-				<aside className='side'></aside>
+		<GradientWrapper
+			styles={{
+				marginTop: 'auto',
+				minHeight: '100px',
+				minWidth: '100%',
+				paddingTop: '2px',
+			}}
+		>
+			<footer className='d-flex bg-primary'>
+				<aside className='side'>
+					<Vault />
+				</aside>
 				<section className='middle d-flex jc-center ai-center fd-col'>
 					<Logo />
 					<p>&copy; 2024 Nicholas Dunn, All Rights Reserved</p>
 					<div className='d-flex jc-center ai-center'>
 						<a
-							href='https://github.com/jamesbaxtuh'
+							href='https://GITHUB.com/jamesbaxtuh/portfolio'
 							target='_blank'
 							rel='noopener noreferrer'
 							className='hvr-underline-from-center pos-rel of-hidden td-none c-alternate'
@@ -45,12 +56,12 @@ export default function Footer() {
 						<Reset />
 					</div>
 					<button onClick={handleFindEgg}>Find Easter Egg</button>
-					<Socials socials={[github, linkedin, upwork]} parent='footer' />
+					<Socials socials={[GITHUB, LINKEDIN, UPWORK]} parent='footer' />
 				</section>
 				<aside className='side right'>
 					<EasterEggs />
 				</aside>
-			</div>
-		</footer>
+			</footer>
+		</GradientWrapper>
 	);
 }

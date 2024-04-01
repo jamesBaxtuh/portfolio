@@ -1,13 +1,5 @@
 #themeButton {
 	border: none;
-	border-radius: 50%;
-	height: 50px;
-	padding: 1.85px;
-	width: 50px;
-}
-
-#themeButton > div {
-	/* border-radius: 50%; */
 }
 
 .icon {

@@ -5,12 +5,12 @@
  * -
  */
 
-const eggData = {
+const EGG_DATA = {
 	1: {
 		id: 1,
 		found: false,
 		hint: 'Who knew it could snow in the desert?',
-		title: 'Home page egg',
+		title: 'Home Page',
 		location: 'Home Page',
 	},
 	2: {
@@ -29,4 +29,4 @@ const eggData = {
 	},
 };
 
-export default eggData;
+export default EGG_DATA;

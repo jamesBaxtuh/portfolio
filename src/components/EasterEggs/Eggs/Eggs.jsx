@@ -8,6 +8,7 @@ import { useUserContext } from '../../../contexts/User/UserContext';
 
 // Components
 import Egg from '../Egg/Egg';
+import GradientWrapper from '../../common/wrappers/Gradient/Gradient';
 
 // Images and Styles
 import './Eggs.css';
@@ -37,7 +38,14 @@ const Eggs = ({ detailed = false }) => {
 		);
 	} else {
 		return (
-			<div className='bg-gradient mi-auto'>
+			<GradientWrapper
+				styles={{
+					borderRadius: '2.5px',
+					marginInline: 'auto',
+					maxWidth: 'fit-content',
+					padding: '1px',
+				}}
+			>
 				<div className='easterEggs d-flex fd-col ai-center fw-300 bg-primary'>
 					<p className='mbl-0 ta-center'>Easter Eggs </p>
 					{mappableEggs.map((egg) => (
@@ -48,7 +56,7 @@ const Eggs = ({ detailed = false }) => {
 						<LinkArrow style={{ marginLeft: '5px' }} />
 					</div>
 				</div>
-			</div>
+			</GradientWrapper>
 		);
 	}
 };

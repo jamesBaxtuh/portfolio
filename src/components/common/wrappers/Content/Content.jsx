@@ -1,5 +1,5 @@
 // Images and Styles
-import './Wrapper.css';
+import './Content.css';
 
 const ContentWrapper = ({ children, styles }) => {
 	return (

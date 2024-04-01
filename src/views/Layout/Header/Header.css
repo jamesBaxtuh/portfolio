@@ -30,7 +30,7 @@ header.fixed:not(.visible) {
 
 header.fixed nav li {
 	background-color: var(--transparent-nav-li-bg);
-	border: 1px solid rgba(27, 26, 34, 0.8);
+	border: 1px solid var(--alternate-color);
 	border-radius: 2px;
 }
 

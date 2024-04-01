@@ -7,15 +7,15 @@
 // Components
 
 // Images and Styles
-import './Project.css';
+import './Preview.css';
 
-const Project = () => {
+const Preview = () => {
 	return (
 		<div>
-			<h1>Project</h1>
+			<h1>Preview</h1>
 			<div>Definitely not filler content.</div>
 		</div>
 	);
 };
 
-export default Project;
+export default Preview;

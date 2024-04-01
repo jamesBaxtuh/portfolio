@@ -1,7 +1,7 @@
 // Utilities and Constants
-import { getEggHint, getEggMessage } from '../../utils/userContext/eggUtils';
-import { createNewStateForPageTrack } from '../../utils/userContext/userUtils';
-import loadInitialState from '../../utils/userContext/loadInitialState';
+import { getEggHint, getEggMessage } from '../../utils/contexts/user/eggUtils';
+import { createNewStateForPageTrack } from '../../utils/contexts/user/userUtils';
+import loadInitialState from '../../utils/contexts/loadInitialState';
 import defaultStates from '../../data/contexts/defaultStates';
 
 export const initialState = loadInitialState('userContext');

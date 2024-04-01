@@ -2,7 +2,7 @@
 import { useLocation } from 'react-router-dom';
 
 // Utilities and Constants
-import pageNames from '../data/contexts/pageNames';
+import PAGE_NAMES from '../data/contexts/pageNames';
 
 // Custom hook to get the current page name based on the route
 const usePageName = () => {
@@ -10,7 +10,7 @@ const usePageName = () => {
 	const page = location.pathname;
 
 	// Determine pageName based on the current pathname
-	const pageName = pageNames[page] ? pageNames[page] : 'NotFound';
+	const pageName = PAGE_NAMES[page] ? PAGE_NAMES[page] : 'NotFound';
 
 	return pageName;
 };

@@ -1,5 +1,5 @@
 // Utilities and Constants
-import { github, linkedin, upwork } from '../../../../data/misc/socialsData';
+import { GITHUB, LINKEDIN, UPWORK } from '../../../../data/misc/socialsData';
 
 // Components
 import Theme from './Theme/Theme';
@@ -12,7 +12,7 @@ import './Legend.css';
 export default function Legend() {
 	return (
 		<section id='legendSection' className='d-flex jc-fend ai-center'>
-			<Socials socials={[github, linkedin, upwork]} parent='header' />
+			<Socials socials={[GITHUB, LINKEDIN, UPWORK]} parent='header' />
 			<>
 				<Theme />
 				<Clock />

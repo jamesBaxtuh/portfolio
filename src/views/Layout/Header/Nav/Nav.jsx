@@ -1,8 +1,8 @@
-// External NPM Packages
-import { Link } from 'react-router-dom';
+// Utilities and Constants
+import NAV_LINKS from '../../../../data/misc/navLinks';
 
 // Components
-import ConditionalNavLink from './ConditionalNavLink';
+import NavLink from './Link/Link';
 
 // Images and Styles
 import './Nav.css';
@@ -11,14 +11,9 @@ export default function Nav() {
 	return (
 		<nav>
 			<ul className='d-flex jc-start h-100'>
-				<div className='navLinkContainer'>
-					<ConditionalNavLink to='/#homeIntro' content='About' />
-				</div>
-				<div className='navLinkContainer'>
-					<li>
-						<Link to='/projects'>Projects</Link>
-					</li>
-				</div>
+				{NAV_LINKS.map((data) => (
+					<NavLink data={data} />
+				))}
 			</ul>
 		</nav>
 	);

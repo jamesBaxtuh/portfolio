@@ -1,56 +1,49 @@
 // Utilities and Constants
-import skillData from '../../data/misc/skillData';
-import { projectCushman } from '../../data/misc/projectData';
-import { findEgg } from '../../utils/userContext/eggUtils.js';
+import SKILL_DATA from '../../data/misc/skillData';
+import { PROJECT_CUSHMAN } from '../../data/misc/projectData';
 import {
-	HOME_LEFT_STATS,
-	HOME_RIGHT_STATS,
+	HOME_LEFT_CARDS,
+	HOME_RIGHT_CARDS,
 } from '../../data/misc/homeCardData.js';
 
-// Contexts
-import { useUserContext } from '../../contexts/User/UserContext.js';
-
 // Components
-import PageWrapper from '../../components/layout/PageWrapper/Wrapper.jsx';
-import ContentWrapper from '../../components/layout/ContentWrapper/Wrapper.jsx';
-import Blur from '../../components/misc/Blur/Blur.jsx';
+import ContentWrapper from '../../components/common/wrappers/Content/Content.jsx';
+import Blur from '../../components/common/Blur/Blur.jsx';
 import Spotlight from '../../components/Project/Spotlight/Spotlight';
 import Cards from '../../components/Cards/Cards.jsx';
 import Skills from '../../components/Skills/Skills/Skills.jsx';
-import Triangle from '../../components/misc/shapes/rounded/RightTriangle';
-import Diamond from '../../components/misc/shapes/rounded/Diamond';
+import Triangle from '../../components/common/shapes/rounded/RightTriangle.jsx';
+import Diamond from '../../components/common/shapes/rounded/Diamond.jsx';
 
 // Images and Styles
 import './Home.css';
 
 export default function Home() {
-	const { state, dispatch } = useUserContext();
 	return (
-		<PageWrapper styles={{ fontFamily: 'var(--rs-font-family)' }}>
+		<div>
 			<ContentWrapper>
 				<section id='homeIntro'>
 					<h1>Nicholas Dunn</h1>
 					<p className='fw-300'>U.S. Based Fullstack Developer</p>
 				</section>
 				<section id='homeTopContent' className='d-flex jc-saround w-standard'>
-					<Cards data={HOME_LEFT_STATS} />
+					<Cards data={HOME_LEFT_CARDS} />
 					<div className='homePhotoContainer d-flex ai-fstart jc-center pos-rel'>
 						<img
 							className='homePhoto'
 							src='https://res.cloudinary.com/thatcloudisbuff/image/upload/v1710040498/oklrmtnoqbptaqtwsobr.jpg'
 							alt='My 3-legged cat in a sweater and I.'
-							onClick={() => findEgg(1, state, dispatch)}
 						/>
 					</div>
 					<div className='d-flex fd-col'>
-						<Cards data={HOME_RIGHT_STATS} textAlign='right' />
-						<Skills skillData={skillData} />
+						<Cards data={HOME_RIGHT_CARDS} textAlign='right' />
+						<Skills skillData={SKILL_DATA} easterEgg={true} />
 					</div>
 				</section>
 			</ContentWrapper>
 			<ContentWrapper
 				styles={{
-					backgroundColor: 'var(--primary-color2)',
+					backgroundColor: 'var(--primary-color-2)',
 				}}
 			>
 				<section className='w-100 pos-rel of-hidden'>
@@ -105,10 +98,10 @@ export default function Home() {
 						}}
 					/>
 					<Blur blurRadius='7.5px'>
-						<Spotlight projectData={projectCushman} />
+						<Spotlight projectData={PROJECT_CUSHMAN} />
 					</Blur>
 				</section>
 			</ContentWrapper>
-		</PageWrapper>
+		</div>
 	);
 }

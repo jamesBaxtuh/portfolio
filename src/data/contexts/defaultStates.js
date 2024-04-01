@@ -1,7 +1,7 @@
 // Utilities and Constants
 import eggData from '../../data/contexts/eggData';
 
-const defaultStates = {
+const DEFAULT_STATES = {
 	userContext: {
 		user: {
 			totalTime: 0,
@@ -56,4 +56,4 @@ function getInitialTheme() {
 	return theme;
 }
 
-export default defaultStates;
+export default DEFAULT_STATES;

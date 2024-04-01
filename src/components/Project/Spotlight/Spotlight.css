@@ -18,7 +18,7 @@
 }
 
 .spotlight-section:last-of-type > div {
-	background: var(--spotlight-bg2);
+	background: var(--spotlight-bg);
 	backdrop-filter: blur(10px);
 	overflow: hidden scroll;
 	padding: 35px;
@@ -52,7 +52,7 @@
 
 /* Button CSS */
 .projectView {
-	background: #fff;
+	background: var(--site-bright-white);
 	border: 1px solid transparent;
 	border-radius: 5px;
 	color: #18181a;

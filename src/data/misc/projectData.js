@@ -1,4 +1,4 @@
-export const projectCushman = {
+export const PROJECT_CUSHMAN = {
 	id: '1c&d',
 	title: 'Cushman & Dunn',
 	content: {

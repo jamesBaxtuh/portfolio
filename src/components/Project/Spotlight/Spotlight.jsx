@@ -33,7 +33,6 @@ const Spotlight = ({ projectData }) => {
 						<Typewriter texts={typeWriterTexts} />
 						<button className='projectView as-fend of-hidden pos-rel d-iblock td-none'>
 							<span className='text pos-r'>View Project</span>
-							{/* <span className='text pos-r'>View Project</span> */}
 							<span className='d-block pos-abs'>
 								<Link to='/projects/cushman'>
 									<Arrow />

@@ -4,7 +4,10 @@ import { FaEgg as Egg } from 'react-icons/fa6';
 import confetti from 'canvas-confetti';
 
 // Utilities and Constants
-import eggData from '../../data/contexts/eggData';
+import random from '../../random';
+import { HEX_SNOW_COLORS } from '../../../data/misc/css';
+import EGG_DATA from '../../../data/contexts/eggData';
+import { HEX_CONFETTI_COLORS } from '../../../data/misc/css';
 
 export const getEggHint = (easterEggs) => {
 	let hintId;
@@ -16,7 +19,7 @@ export const getEggHint = (easterEggs) => {
 
 	hintId = possibleHints[Math.floor(Math.random() * possibleHints.length)];
 
-	return eggData[hintId].hint;
+	return EGG_DATA[hintId].hint;
 };
 
 export const getEggMessage = (found, hints) => {
@@ -66,6 +69,7 @@ export const fireConfetti = () => {
 	var defaults = {
 		origin: { y: 0.7 },
 		ticks: 250,
+		colors: HEX_CONFETTI_COLORS,
 	};
 
 	function fire(particleRatio, opts) {
@@ -105,14 +109,11 @@ export const snow = () => {
 	var animationEnd = Date.now() + duration;
 	var skew = 1;
 
-	function randomInRange(min, max) {
-		return Math.random() * (max - min) + min;
-	}
-
 	(function frame() {
 		var timeLeft = animationEnd - Date.now();
 		var ticks = Math.max(200, 500 * (timeLeft / duration));
 		skew = Math.max(0.8, skew - 0.001);
+		const flakeColor = HEX_SNOW_COLORS[random(0, HEX_SNOW_COLORS.length)];
 
 		confetti({
 			particleCount: 1,
@@ -124,11 +125,11 @@ export const snow = () => {
 				y: Math.random() * skew - 0.2,
 			},
 			colors: ['#ffffff'],
+			// colors: [flakeColor],
 			shapes: ['circle'],
-			// gravity: randomInRange(0.4, 0.6),
-			gravity: randomInRange(0.8, 0.9),
-			scalar: randomInRange(0.4, 1),
-			drift: randomInRange(-0.4, 0.5),
+			gravity: random(0.8, 0.9),
+			scalar: random(0.4, 1),
+			drift: random(-0.4, 0.5),
 		});
 
 		if (timeLeft > 0) {
@@ -138,7 +139,7 @@ export const snow = () => {
 };
 
 export const findEgg = (id, state, dispatch) => {
-	const egg = eggData[id];
+	const egg = EGG_DATA[id];
 	const alreadyFound = state.easterEggs.eggs[id].found;
 	if (!alreadyFound) {
 		dispatch({

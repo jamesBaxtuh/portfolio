@@ -5,61 +5,99 @@
 	--primary-gradient-red: rgb(253 29 29);
 	--primary-gradient-yellow: rgb(252 176 69);
 	--primary-gradient-highlight: rgb(245 85 59);
-	--site-black: rgb(28 27 35);
+	--site-white: rgb(240 242 244);
+	--site-bright-white: rgb(250 250 250);
+	--site-off-white-1: rgb(252 252 252 / 0.9);
+	--site-off-white-2: rgb(252 252 252 / 0.5);
+	--site-lightgrey: rgb(170 170 170 / 0.5);
+	--site-black: rgb(27 26 34);
+	--site-black-2: rgb(17 16 21);
+	--site-off-black-1: rgb(27 26 34 / 0.9);
 	--shape-1-color-1: rgb(225 0 85 / 0.5);
 	--shape-1-color-2: rgb(225 150 95);
-	--confetti-blue: #26ccff;
-	--confetti-purple: #a25afd;
-	--confetti-red: #ff5e7e;
-	--confetti-green: #88ff5a;
-	--confetti-yellow: #fcff42;
-	--confetti-orange: #ffa62d;
-	--confetti-magenta: #ff36ff;
+	/* Original Palette */
+	--confetti-blue: rgb(38, 204, 255);
+	--confetti-purple: rgb(162, 90, 253);
+	--confetti-red: rgb(255, 94, 126);
+	--confetti-green: rgb(136, 255, 90);
+	--confetti-yellow: rgb(252, 255, 66);
+	--confetti-orange: rgb(255, 166, 45);
+	--confetti-magenta: rgb(255, 54, 255);
+
+	/* Lighter Variants */
+	--confetti-blue-light: rgb(102, 224, 255);
+	--confetti-purple-light: rgb(186, 144, 255);
+	--confetti-red-light: rgb(255, 144, 163);
+	--confetti-green-light: rgb(176, 255, 130);
+	--confetti-yellow-light: rgb(255, 255, 153);
+	--confetti-orange-light: rgb(255, 186, 115);
+	--confetti-magenta-light: rgb(255, 153, 255);
+
+	/* Darker Variants */
+	--confetti-blue-dark: rgb(0, 154, 205);
+	--confetti-purple-dark: rgb(122, 40, 203);
+	--confetti-red-dark: rgb(205, 44, 76);
+	--confetti-green-dark: rgb(86, 205, 40);
+	--confetti-yellow-dark: rgb(202, 205, 16);
+	--confetti-orange-dark: rgb(205, 126, 25);
+	--confetti-magenta-dark: rgb(205, 4, 205);
+
+	/* Desaturated Variants */
+	--confetti-blue-desat: rgb(92, 204, 255);
+	--confetti-purple-desat: rgb(162, 120, 253);
+	--confetti-red-desat: rgb(255, 124, 156);
+	--confetti-green-desat: rgb(166, 255, 150);
+	--confetti-yellow-desat: rgb(252, 255, 166);
+	--confetti-orange-desat: rgb(255, 186, 115);
+	--confetti-magenta-desat: rgb(255, 104, 255);
+
+	/* Complementary and Analogous Colors */
+	--confetti-teal: rgb(38, 255, 204);
+	--confetti-cyan: rgb(90, 253, 162);
+	--confetti-pink: rgb(255, 90, 204);
+	--confetti-lime: rgb(204, 255, 38);
+	--confetti-cream: rgb(255, 255, 204);
+	--confetti-peach: rgb(255, 204, 154);
+	--confetti-lavender: rgb(204, 153, 255);
+
 	/* Font Specific */
 	--rs-font-family: 'Roboto Slab', serif;
 	--rs-font-weight: 200;
 	--rs-font-style: normal;
 	--rs-font-optical-sizing: auto;
 	/* React-Toastify */
-	--toastify-color-light: #fff;
-	--toastify-color-dark: #121212;
-	--toastify-color-info: #3498db;
-	--toastify-color-success: #07bc0c;
-	--toastify-color-warning: #f1c40f;
-	--toastify-color-error: #e74c3c;
-	--toastify-color-transparent: rgba(255, 255, 255, 0.7);
+	--toastify-color-light: rgb(255 255 255);
+	--toastify-color-dark: rgb(18 18 18);
+	--toastify-color-info: rgb(52 152 219);
+	--toastify-color-success: rgb(7 188 12);
+	--toastify-color-warning: rgb(241 196 15);
+	--toastify-color-error: rgb(231 76 60);
+	--toastify-color-transparent: rgb(255 255 255 / 0.7);
 }
 
 /* Variable  */
 [data-theme='dark'] {
-	--primary-color: rgb(27 26 34);
-	--primary-color2: rgb(17 16 21 / 0.2);
-	--alternate-color: rgb(240 242 244);
-	--transparent-nav: rgb(27 26 34 / 0.9);
-	--transparent-nav-li-bg: rgb(27 26 34);
-	--spotlight-bg: rgb(17 16 21);
-	--spotlight-bg2: rgb(27 26 34 / 0.8);
+	--primary-color: var(--site-black);
+	--alternate-color: var(--site-white);
+	--transparent-nav: var(--site-off-black-1);
+	--transparent-nav-li-bg: var(--site-black);
+	--spotlight-bg: var(--site-black-2);
 	--circle-one: rgb(65 172 93 / 0.35);
 	--circle-two: rgb(25 119 227 / 0.25);
 	--shape-2-color-1: rgb(55 0 85 / 0.5);
 	--shape-2-color-2: rgb(75 150 95 /0.5);
-	--home-intro-text: var(--alternate-color);
 }
 
 [data-theme='light'] {
-	--primary-color: rgb(241 241 241);
-	--primary-color2: rgb(252 252 252 / 0.5);
-	--alternate-color: rgb(51 51 51);
-	--transparent-nav: rgb(255 255 255 / 0.5);
-	/* --transparent-nav-li-bg: rgb(240 242 244); */
-	--transparent-nav-li-bg: rgb(250 250 250);
-	--spotlight-bg: rgb(255 255 255 / 0.9);
-	--spotlight-bg2: rgb(255 255 255 / 0.5);
+	--primary-color: var(--site-white);
+	--alternate-color: var(--site-black);
+	--transparent-nav: var(--site-off-white-2);
+	--transparent-nav-li-bg: var(--site-bright-white);
+	--spotlight-bg: var(--site-off-white-2);
 	--circle-one: rgb(179 76 159 / 0.4);
 	--circle-two: rgb(25 119 227 / 0.25);
 	--shape-2-color-1: rgb(166 193 238);
 	--shape-2-color-2: rgb(251 194 235);
-	--home-intro-text: var(--site-black);
 }
 
 * {
@@ -78,14 +116,6 @@ body {
 }
 
 /* Custom Toast Styling */
-.Toastify__toast--default {
-	background: white;
-	color: black;
-	border-radius: 8px;
-	border: 1px solid #e0e0e0;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 .Toastify__close-button {
 	color: inherit;
 	opacity: 1;

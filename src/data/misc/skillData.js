@@ -14,7 +14,7 @@ import { ReactComponent as Git } from '../../static/icons/git.svg';
 import { ReactComponent as Germany } from '../../static/icons/germany.svg';
 import { ReactComponent as ReactRouter } from '../../static/icons/react-router.svg';
 
-const skillData = [
+const SKILL_DATA = [
 	{
 		id: 'HTMLIcon',
 		tooltip: 'HTML5',
@@ -87,4 +87,4 @@ const skillData = [
 	},
 ];
 
-export default skillData;
+export default SKILL_DATA;

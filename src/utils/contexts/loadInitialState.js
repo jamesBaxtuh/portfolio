@@ -1,12 +1,12 @@
 // Utilities and Constants
-import defaultStates from '../../data/contexts/defaultStates';
+import DEFAULT_STATES from '../../data/contexts/defaultStates';
 
 const loadInitialState = (context) => {
 	try {
 		let returnedState = {};
 
 		if (context === 'userContext') {
-			const { userContext } = defaultStates;
+			const { userContext } = DEFAULT_STATES;
 			for (const stateKey in userContext) {
 				const stateValue = userContext[stateKey];
 				const existingState = localStorage.getItem(stateKey);
@@ -23,7 +23,7 @@ const loadInitialState = (context) => {
 		return returnedState;
 	} catch (e) {
 		console.log(`Error retrieving state from localStorage.`, e);
-		return defaultStates[context];
+		return DEFAULT_STATES[context];
 	}
 };
 

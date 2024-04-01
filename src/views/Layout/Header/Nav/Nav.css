@@ -7,15 +7,7 @@ nav ul > div {
 	margin: 10px;
 }
 
-.navLinkContainer {
-	border-radius: 2.5px;
-	margin-inline: 5%;
-	min-height: 30px;
-	padding: 1.5px;
-	width: auto;
-}
-
-.navLinkContainer li a {
+nav .gradientWrapper a {
 	border-radius: 1.5px;
 	color: inherit;
 	display: inline-block;
@@ -25,7 +17,7 @@ nav ul > div {
 	width: 100%;
 }
 
-.navLinkContainer:hover {
+nav .gradientWrapper:hover {
 	background: linear-gradient(
 		90deg,
 		var(--primary-gradient-purple) 0%,
@@ -34,6 +26,6 @@ nav ul > div {
 	);
 }
 
-.navLinkContainer:hover li {
+nav .gradientWrapper:hover li {
 	background: var(--primary-color);
 }

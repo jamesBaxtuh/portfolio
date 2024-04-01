@@ -1,4 +1,4 @@
-const pageNames = {
+const PAGE_NAMES = {
 	'/': 'Home',
 	'/projects': 'ProjectHub',
 	'/projects/cushman': 'ProjectCushman',
@@ -6,4 +6,4 @@ const pageNames = {
 	'/projects/secret': 'SecretPage',
 };
 
-export default pageNames;
+export default PAGE_NAMES;

@@ -5,9 +5,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // Components
 import Layout from './views/Layout/Layout';
 import Home from './views/Home/Home';
-import Loading from './components/misc/Loading/Loading';
-const Projects = lazy(() => import('./views/Project/Projects'));
-const Project = lazy(() => import('./views/Project/Project'));
+import Loading from './components/common/Loading/Loading';
+const Projects = lazy(() => import('./views/Projects/Projects'));
+const Project = lazy(() => import('./views/Projects/Project/Project'));
 const NotFound = lazy(() => import('./views/Error/NotFound'));
 
 function App() {
