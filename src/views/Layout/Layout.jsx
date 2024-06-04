@@ -11,8 +11,8 @@ import { ThemeProvider } from '../../contexts/Theme/ThemeProvider';
 
 // Components
 import PageWrapper from '../../components/common/wrappers/Page/Page';
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
+import Header from '../../components/common/Header/Header';
+import Footer from '../../components/common/Footer/Footer';
 import PageTracker from '../../components/utility/PageTracker';
 import ScrollToSection from '../../components/utility/ScrollToSection';
 
@@ -26,7 +26,7 @@ export default function Layout() {
 				<PageWrapper>
 					<ToastContainer
 						position='top-center'
-						autoClose={1750}
+						autoClose={2550}
 						hideProgressBar={false}
 						newestOnTop={false}
 						closeOnClick

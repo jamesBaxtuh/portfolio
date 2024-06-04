@@ -4,7 +4,7 @@ import random from './random';
 // Default color is a bright yellow
 export default function generateSparkle(colors) {
 	return {
-		id: String(random(10000, 99999)),
+		id: String(random(1, 99999)),
 		createdAt: Date.now(),
 		color:
 			typeof colors === 'string'

@@ -2,7 +2,7 @@
 import { useLocation } from 'react-router-dom';
 
 // Utilities and Constants
-import PAGE_NAMES from '../data/contexts/pageNames';
+import PAGE_NAMES from '../data/global/pageNames';
 
 // Custom hook to get the current page name based on the route
 const usePageName = () => {

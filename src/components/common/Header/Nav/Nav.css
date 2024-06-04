@@ -1,0 +1,77 @@
+nav ul {
+	padding-left: 0;
+}
+
+nav ul > div {
+	list-style: none;
+	margin: 10px;
+}
+
+nav .gradientWrapper a {
+	border-radius: 1.5px;
+	color: inherit;
+	display: inline-block;
+	text-decoration: none;
+	height: 100%;
+	padding: 7.5px;
+	width: 100%;
+}
+
+nav .gradientWrapper:hover {
+	background: linear-gradient(
+		90deg,
+		var(--primary-gradient-purple) 0%,
+		var(--primary-gradient-red) 50%,
+		var(--primary-gradient-yellow) 100%
+	);
+}
+
+nav .gradientWrapper:hover li {
+	background: var(--primary-color);
+}
+
+/* Fixed Nav */
+
+header.fixed {
+	background-color: var(--transparent-nav);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	min-width: 100%;
+	opacity: 0;
+	position: fixed;
+	top: 0;
+	z-index: 101;
+}
+
+header.fixed.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+header.fixed:not(.visible) {
+	transform: translateY(-100%);
+}
+
+header.fixed nav li {
+	background-color: var(--transparent-nav-li-bg);
+	border: 1px solid var(--alternate-color);
+	border-radius: 2px;
+}
+
+header.fixed nav li:hover {
+	background-color: var(--transparent-nav-li-bg);
+	border: 1px solid transparent;
+}
+
+header.fixed #themeButton > div {
+	background-color: var(--transparent-nav-li-bg);
+}
+
+header > nav,
+header > section {
+	min-width: 35%;
+}
+
+#placeHolder {
+	min-height: 100px;
+	max-height: 15vh;
+}

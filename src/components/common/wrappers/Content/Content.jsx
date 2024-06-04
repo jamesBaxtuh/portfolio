@@ -1,9 +1,9 @@
 // Images and Styles
 import './Content.css';
 
-const ContentWrapper = ({ children, styles }) => {
+const ContentWrapper = ({ children, styles, containChildren = false }) => {
 	return (
-		<div className='contentWrapper' style={styles}>
+		<div className={`contentWrapper ${containChildren && 'children-mw-90'}`} style={styles}>
 			{children}
 		</div>
 	);

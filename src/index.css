@@ -12,9 +12,13 @@
 	--site-lightgrey: rgb(170 170 170 / 0.5);
 	--site-black: rgb(27 26 34);
 	--site-black-2: rgb(17 16 21);
+	--site-dark-black: rgb(0 0 0);
+	--site-dark-black-transparent: rgb(0 0 0 / 0.7);
 	--site-off-black-1: rgb(27 26 34 / 0.9);
+	--site-off-black-2: rgb(27 26 34 / 0.2);
 	--shape-1-color-1: rgb(225 0 85 / 0.5);
 	--shape-1-color-2: rgb(225 150 95);
+
 	/* Original Palette */
 	--confetti-blue: rgb(38, 204, 255);
 	--confetti-purple: rgb(162, 90, 253);
@@ -65,14 +69,6 @@
 	--rs-font-weight: 200;
 	--rs-font-style: normal;
 	--rs-font-optical-sizing: auto;
-	/* React-Toastify */
-	--toastify-color-light: rgb(255 255 255);
-	--toastify-color-dark: rgb(18 18 18);
-	--toastify-color-info: rgb(52 152 219);
-	--toastify-color-success: rgb(7 188 12);
-	--toastify-color-warning: rgb(241 196 15);
-	--toastify-color-error: rgb(231 76 60);
-	--toastify-color-transparent: rgb(255 255 255 / 0.7);
 }
 
 /* Variable  */
@@ -81,11 +77,37 @@
 	--alternate-color: var(--site-white);
 	--transparent-nav: var(--site-off-black-1);
 	--transparent-nav-li-bg: var(--site-black);
-	--spotlight-bg: var(--site-black-2);
+	--spotlight-bg-1: var(--site-black-2);
+	--spotlight-bg-2: var(--site-dark-black-transparent);
 	--circle-one: rgb(65 172 93 / 0.35);
 	--circle-two: rgb(25 119 227 / 0.25);
 	--shape-2-color-1: rgb(55 0 85 / 0.5);
 	--shape-2-color-2: rgb(75 150 95 /0.5);
+	--vault-bg: var(--alternate-color);
+	--vault-text-color: var(--primary-color);
+	--vault-border: 1px solid transparent;
+	--vault-box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+		rgba(17, 17, 26, 0.1) 0px 0px 8px;
+	--vault-outline: 1px solid var(--alternate-color);
+	--info-primary: rgba(9, 94, 186, 0.5);
+	--info-alternate: rgb(0, 149, 255);
+	--info-text: var(--alternate-color);
+	--warning-primary: #fff4e5;
+	--warning-alternate: var(--primary-gradient-highlight);
+	--warning-text: var(--primary-color);
+	--project-preview-bg: var(--site-dark-black-transparent);
+	--project-preview-bg: rgb(255 255 255 / 0.045);
+	--project-preview-header: var(--info-primary);
+	/* --project-preview-header: rgb(184 210 240); */
+	--project-preview-header: rgb(87, 138, 196);
+	--project-preview-text: rgb(190 198 209);
+	--ee-demo-bg: var(--site-black-2);
+	--vscodeApp_KeyColor: rgb(240 240 240 / 1);
+	/* --vscodeApp_KeyBg: rgba(79, 72, 72, 0.5); */
+	--vscodeApp_KeyBg: rgba(79, 72, 72, 0.7);
+	/* --vscodeApp_KeyBg: rgba(179, 49, 49, 0.5); */
+	--vscodeApp_ShortcutBorder: var(--site-off-white-2);
+	--vscodeApp_ShortcutBoxShadow: var(--site-off-white-2);
 }
 
 [data-theme='light'] {
@@ -94,10 +116,37 @@
 	--transparent-nav: var(--site-off-white-2);
 	--transparent-nav-li-bg: var(--site-bright-white);
 	--spotlight-bg: var(--site-off-white-2);
+	--spotlight-bg-2: var(--site-off-white-1);
 	--circle-one: rgb(179 76 159 / 0.4);
 	--circle-two: rgb(25 119 227 / 0.25);
 	--shape-2-color-1: rgb(166 193 238);
 	--shape-2-color-2: rgb(251 194 235);
+	--vault-bg: var(--site-bright-white);
+	--vault-text-color: var(--alternate-color);
+	--vault-border: 1px solid var(--alternate-color);
+	--vault-box-shadow: rgb(17 17 26 / 0.05) 0px 1px 0px,
+		rgb(17 17 26 / 0.1) 0px 0px 8px;
+	--vault-outline: 1px solid var(--alternate-color);
+	--info-primary: rgb(205 225 247);
+	--info-alternate: rgb(9 95 186);
+	--info-text: rgb(9 95 186);
+	--warning-primary: #fff4e5;
+	--warning-alternate: var(--primary-gradient-highlight);
+	--project-preview-bg: var(--site-bright-white);
+	--project-preview-header: var(--info-alternate);
+	--project-preview-text: var(--alternate-color);
+	--ee-demo-bg: var(--site-bright-white);
+	--vscodeApp_FilterBg:  rgb(252 252 252 / 1);
+	--vscodeApp_FilterBorder:  rgb(0 0 0 / 0.025);
+	--vscodeApp_HotkeyBg:  rgb(0 0 0 / 0.025);
+	/* --vscodeApp_HotkeyBg: rgba(109, 171, 246, 0.045); */
+	/* --vscodeApp_HotkeyBg: rgb(44 87 119 / .15); */
+	/* --vscodeApp_HotkeyBg: rgb(249 250 251); */
+	--vscodeApp_KeyColor: rgb(125 125 125 / 1);
+	--vscodeApp_KeyBg: rgb(225 225 225 / .75);
+	/* --vscodeApp_ShortcutBorder: rgba(17, 17, 26, 0.1); */
+	--vscodeApp_ShortcutBorder: rgba(17, 17, 26, 0.165);
+	--vscodeApp_ShortcutBoxShadow: var(--vscodeApp_ShortcutBorder) 0px 1.25px 1.25px 0px;
 }
 
 * {
@@ -173,6 +222,11 @@ body {
 		rgb(253 29 29) 50%,
 		rgb(252 176 69) 100%
 	);
+}
+
+.children-mw-90 > * {
+	max-width: 90%;
+	margin: auto;
 }
 
 /* === Display === */

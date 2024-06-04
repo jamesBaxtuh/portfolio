@@ -1,16 +1,32 @@
 // External NPM Packages
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
-// Utilities and Constants
+// Utilities and Data
 import random from '../../../utils/random';
-import { VARIABLE_CONFETTI_COLORS } from '../../../data/misc/css';
+import { VARIABLE_CONFETTI_COLORS } from '../../../data/global/css';
 
 // Images and Styles
 import './Countdown.css';
 
-const Countdown = ({ startValue, increment, onReset, DisplayIcon }) => {
+// Constants
+const defaultOptions = {
+	DisplayIcon: null,
+	useRandomColor: true,
+	textColor: 'var(--site-black)',
+	iconWidth: '50px',
+	iconHeight: '50px',
+};
+
+const Countdown = ({ startValue, increment, onReset, options }) => {
 	const [time, setTime] = useState(startValue);
-	// Initialize randomColor with useState so that its value doesn't change each re-render (which happens at every setTime() runs, which happens to be each second)
+	const finalizedOptions = useMemo(() => {
+		return { ...defaultOptions, ...options };
+	}, [options]);
+
+	const { DisplayIcon, useRandomColor, textColor, iconHeight, iconWidth } =
+		finalizedOptions;
+
+	// Initialize randomColor with useState so that its value doesn't change each re-render (which happens at every setTime() runs, which happens to be every {increment})
 	const [randomColor, setRandomColor] = useState(
 		() => VARIABLE_CONFETTI_COLORS[random(0, VARIABLE_CONFETTI_COLORS.length)]
 	);
@@ -35,24 +51,35 @@ const Countdown = ({ startValue, increment, onReset, DisplayIcon }) => {
 		return () => clearInterval(intervalId); // Cleanup on unmount
 	}, [time, increment, onReset]);
 
+	if (DisplayIcon)
+		return (
+			<>
+				<DisplayIcon
+					style={{
+						color: useRandomColor ? randomColor : 'inherit',
+						height: iconHeight,
+						width: iconWidth,
+					}}
+				/>
+				<span className='countdownValue' style={{ color: textColor }}>
+					{time / 1000}
+				</span>
+			</>
+		);
 	return (
-		<div className='skillIconContainer countdown d-flex jc-center ai-center'>
-			{DisplayIcon ? (
-				<>
-					<DisplayIcon style={{ color: randomColor }} />
-					<span className='countdownValue'>{time / 1000}</span>
-				</>
-			) : (
-				<>
-					<div
-						className='countdownCircle'
-						style={{
-							backgroundColor: randomColor,
-						}}
-					/>
-					<span className='countdownValue'>{time / 1000}</span>
-				</>
-			)}
+		<div className='d-flex jc-center ai-center' aria-live='polite'>
+			<div
+				className='countdownCircle'
+				style={{
+					backgroundColor: useRandomColor ? randomColor : 'inherit',
+					color: textColor,
+					height: iconHeight,
+					width: iconWidth,
+				}}
+			/>
+			<span className='countdownValue' style={{ color: textColor }}>
+				{time / 1000}
+			</span>
 		</div>
 	);
 };

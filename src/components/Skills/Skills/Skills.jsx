@@ -1,7 +1,7 @@
 // External NPM Packages
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 
-// Utilities and Constants
+// Utilities and Data
 import { findEgg } from '../../../utils/contexts/user/eggUtils';
 
 // Contexts
@@ -9,13 +9,39 @@ import { useUserContext } from '../../../contexts/User/UserContext';
 
 // Components
 import Skill from '../Skill/Skill';
+import EasterEggSkill from '../Skill/EasterEggSkill';
 
 // Images and Styles
 import './Skills.css';
 
-const Skills = ({ skillData, easterEgg = false }) => {
+// Constants
+const defaultIconOptions = {
+	containerWidth: '33%',
+	iconHeight: '50px',
+	iconWidth: '50px',
+};
+
+const Skills = ({ skillData, isEasterEgg = false, iconOptions = {} }) => {
 	const { state, dispatch } = useUserContext();
 	const [toggledSkills, setToggledSkills] = useState(0);
+
+	const finalizedIconOptions = useMemo(() => {
+		const tempOptions = { ...defaultIconOptions, ...iconOptions };
+		// Ensure that width and height are equal
+		if (iconOptions.iconHeight && !iconOptions.iconWidth) {
+			// If only height is provided, set width to height value
+			tempOptions.iconWidth = iconOptions.iconHeight;
+		} else if (iconOptions.iconWidth && !iconOptions.iconHeight) {
+			// If only width is provided, set height to width value
+			tempOptions.iconHeight = iconOptions.iconWidth;
+		} else if (iconOptions.iconWidth != iconOptions.iconHeight) {
+			// If both are provided, but unequal, use default values
+			tempOptions.iconHeight = defaultIconOptions.iconHeight;
+			tempOptions.iconWidth = defaultIconOptions.iconWidth;
+		}
+
+		return tempOptions;
+	}, [iconOptions]);
 
 	const onToggle = useCallback((action) => {
 		setToggledSkills((current) => {
@@ -30,21 +56,23 @@ const Skills = ({ skillData, easterEgg = false }) => {
 	useEffect(() => {
 		if (toggledSkills === skillData.length) {
 			findEgg(1, state, dispatch);
-		} else if (toggledSkills === 0) {
-			console.log('reset');
 		}
 	}, [toggledSkills]);
 
 	return (
-		<div id='skillContainer' className='d-flex jc-saround fw-wrap'>
-			{skillData.map((data) => (
-				<Skill
-					key={data.id}
-					data={data}
-					onToggle={onToggle}
-					easterEgg={easterEgg}
-				/>
-			))}
+		<div id='skillContainer' className='d-flex jc-sbetween fw-wrap'>
+			{skillData.map((data) =>
+				isEasterEgg ? (
+					<EasterEggSkill
+						key={data.id}
+						data={data}
+						onToggle={onToggle}
+						options={finalizedIconOptions}
+					/>
+				) : (
+					<Skill key={data.id} data={data} options={finalizedIconOptions} />
+				)
+			)}
 		</div>
 	);
 };

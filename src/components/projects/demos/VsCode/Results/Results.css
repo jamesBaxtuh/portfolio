@@ -1,0 +1,33 @@
+/* .vscodeApp_ResultsContainer */
+
+#vscodeApp_ResultsHeaderContainer {
+    margin-block: 2vh 5vh;
+}
+
+#vscodeApp_ResultsHeaderContainer h2 {
+    text-align: center;
+    margin-block: 5px;
+}
+
+#vscodeApp_ResultsHeaderContainer div {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+#vscodeApp_ResultsHeaderContainer div > * {
+    margin-inline: 5px;
+    margin-block: 2vh;
+}
+
+
+#vscodeApp_ResultsFilters {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#vscodeApp_ResultsFilters span {
+    display: flex;
+    align-items: center;
+}

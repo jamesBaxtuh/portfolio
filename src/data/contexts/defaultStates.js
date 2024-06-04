@@ -13,15 +13,23 @@ const DEFAULT_STATES = {
 					totalVisits: 0,
 					totalTime: 0,
 				},
-				ProjectHub: {
+				Projects: {
 					totalVisits: 0,
 					totalTime: 0,
 				},
-				ProjectCushman: {
+				Project_Cushman: {
 					totalVisits: 0,
 					totalTime: 0,
 				},
-				ProjectStats: {
+				Project_Eggs: {
+					totalVisits: 0,
+					totalTime: 0,
+				},
+				Project_Stats: {
+					totalVisits: 0,
+					totalTime: 0,
+				},
+				Project_JsLibrary: {
 					totalVisits: 0,
 					totalTime: 0,
 				},
@@ -40,7 +48,6 @@ const DEFAULT_STATES = {
 			found: 0,
 			hints: 0,
 			eggs: eggData,
-			hintMessage: null,
 			stateMessage:
 				'What are you doing here? There are easter eggs to be found!',
 			timer: Date.now(),

@@ -1,0 +1,55 @@
+.previewContainer {
+	background-color: var(--project-preview-bg);
+	border-radius: 5px;
+	color: inherit;
+	display: flex;
+	justify-content: space-between;
+	margin-block: 2.5%;
+	height: 300px;
+	outline: 2px solid transparent;
+	overflow-y: scroll;
+	position: relative;
+	text-decoration: none;
+}
+
+.previewContainer > span {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.previewContainer:hover {
+	outline: 2px solid var(--info-alternate);
+}
+
+.previewContainer:active {
+	outline: 2px solid var(--info-alternate);
+}
+
+.previewGraphic {
+	width: 400px;
+	display: flex;
+}
+
+.previewContainer img {
+	max-width: 400px;
+	max-height: 300px;
+	margin-inline: auto;
+}
+
+.previewContent {
+	width: 50%;
+	padding: 15px 25px;
+	color: var(--project-preview-text);
+}
+
+.previewContent h1 {
+	color: var(--project-preview-header);
+	margin-bottom: 0px;
+}
+
+.previewContent p:first-of-type {
+	margin: 0px;
+	font-size: .85rem;
+	font-weight: 600;
+}

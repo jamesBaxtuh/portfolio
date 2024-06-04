@@ -1,0 +1,41 @@
+.vscodeApp_ShortcutContainer {
+    border-bottom: 1px solid var(--vscodeApp_ShortcutBorder);
+    padding: 20px 10px 25px;
+    transition: .175s transform ease-in-out;
+}
+
+.vscodeApp_ShortcutContainer:hover {
+	background-color: rgb(249 250 251 / 0.5);
+    box-shadow: var(--vscodeApp_ShortcutBoxShadow);
+    transform: translateY(-1.25px) scale(1.01);
+}
+.vscodeApp_ShortcutContainer:hover p {
+    font-weight: 700;
+}
+
+.vscodeApp_Shortcut {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.vscodeApp_Shortcut p {
+    text-align: center;
+}
+
+.vscodeApp_Shortcut {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.vscodeApp_Shortcut > * {
+    width: 45%;
+}
+
+.vscodeApp_SystemIcon {
+    font-size: 1.675em;
+    margin-inline: 10
+}
