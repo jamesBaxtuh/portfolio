@@ -12,11 +12,13 @@ import './Results.css'
 
 const Results = ({query, activeFilters, system}) => {
   const [showAll, setShowAll] = useState(false);
-
+  console.log(activeFilters);
   const filteredData = useMemo(() => {
     let filteredData = [];
     for (let filter of activeFilters) {
-      filteredData = [...filteredData, ...filteredHotkeys[filter]];
+      if (filter !== 'Mac Only' && filter !== 'PC Only') {
+        filteredData = [...filteredData, ...filteredHotkeys[filter]];
+      }
     }
     return filteredData.length === 0 ? masterHotkeyList : filteredData;
   }, [activeFilters])
@@ -33,7 +35,7 @@ const Results = ({query, activeFilters, system}) => {
     return filteredData;
   }, [query, filteredData]);
 
-  
+  console.log(returnedData);
   return (
     <div id='vscodeApp_ResultsContainer'>
         <div id='vscodeApp_ResultsHeaderContainer'>
@@ -54,15 +56,13 @@ const Results = ({query, activeFilters, system}) => {
             )
           }
         </div>
-        
-
         {returnedData.map((result, idx) => (
-            idx < 15 && !showAll ? (
+            idx < 15 && !showAll && (
               <Shortcut data={result} system={system} key={`${result.title, idx}`}/>
-            ) : (
-              <button>Show All</button>
-            )
+            ) 
         ))}
+        <div>
+        </div>
     </div>
   )
 }

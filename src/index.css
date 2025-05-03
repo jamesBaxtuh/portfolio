@@ -75,7 +75,7 @@
 [data-theme='dark'] {
 	--primary-color: var(--site-black);
 	--alternate-color: var(--site-white);
-	--transparent-nav: var(--site-off-black-1);
+	--transparent-nav: rgba(0, 0, 0, 0.5);
 	--transparent-nav-li-bg: var(--site-black);
 	--spotlight-bg-1: var(--site-black-2);
 	--spotlight-bg-2: var(--site-dark-black-transparent);
@@ -108,6 +108,7 @@
 	/* --vscodeApp_KeyBg: rgba(179, 49, 49, 0.5); */
 	--vscodeApp_ShortcutBorder: var(--site-off-white-2);
 	--vscodeApp_ShortcutBoxShadow: var(--site-off-white-2);
+	--vscodeApp_HotkeyBg: rgba(240 240 240 / .325);
 }
 
 [data-theme='light'] {
@@ -136,9 +137,9 @@
 	--project-preview-header: var(--info-alternate);
 	--project-preview-text: var(--alternate-color);
 	--ee-demo-bg: var(--site-bright-white);
-	--vscodeApp_FilterBg:  rgb(252 252 252 / 1);
-	--vscodeApp_FilterBorder:  rgb(0 0 0 / 0.025);
-	--vscodeApp_HotkeyBg:  rgb(0 0 0 / 0.025);
+	--vscodeApp_FilterBg: rgb(252 252 252 / 1);
+	--vscodeApp_FilterBorder: rgb(0 0 0 / 0.025);
+	--vscodeApp_HotkeyBg: rgb(0 0 0 / 0.025);
 	/* --vscodeApp_HotkeyBg: rgba(109, 171, 246, 0.045); */
 	/* --vscodeApp_HotkeyBg: rgb(44 87 119 / .15); */
 	/* --vscodeApp_HotkeyBg: rgb(249 250 251); */
@@ -183,15 +184,17 @@ body {
 }
 
 .Toastify__toast--success {
-	background: #e9f6ec !important; /* A light green that complements the 'Find Easter Egg' button */
-	color: #2c662d !important; /* A darker green for readable text */
+	background: #e9f6ec !important;
+	/* A light green that complements the 'Find Easter Egg' button */
+	color: #2c662d !important;
+	/* A darker green for readable text */
 }
 
 .Toastify__toast--warning {
-	background: #fff4e5 !important; /* A light orange that matches the 'View Project' button */
-	color: var(
-		--primary-gradient-highlight
-	) !important; /* A brownish-orange for the text */
+	background: #fff4e5 !important;
+	/* A light orange that matches the 'View Project' button */
+	color: var(--primary-gradient-highlight) !important;
+	/* A brownish-orange for the text */
 }
 
 /* ======== App-Wide Styles ======== */
@@ -216,15 +219,13 @@ body {
 }
 
 .bg-gradient {
-	background: linear-gradient(
-		90deg,
-		rgb(131 58 180) 0%,
-		rgb(253 29 29) 50%,
-		rgb(252 176 69) 100%
-	);
+	background: linear-gradient(90deg,
+			rgb(131 58 180) 0%,
+			rgb(253 29 29) 50%,
+			rgb(252 176 69) 100%);
 }
 
-.children-mw-90 > * {
+.children-mw-90>* {
 	max-width: 90%;
 	margin: auto;
 }

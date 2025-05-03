@@ -18,7 +18,8 @@ import GradientWrapper from '../../../../common/wrappers/Gradient/Gradient';
 // Images and Styles
 import './Eggs.css';
 
-const Eggs = ({ demo = true }) => {
+// const Eggs = ({ demo = true }) => {
+const Eggs = ({ demo = false }) => {
 	const { state } = useUserContext();
 	const { easterEggs } = state;
 

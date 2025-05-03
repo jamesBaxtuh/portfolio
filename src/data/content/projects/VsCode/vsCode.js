@@ -91,8 +91,6 @@ export const filters = [
 	"Display",
 	"Debug",
 	"Integrated Terminal",
-	"Mac Only",
-	"PC Only",
 ];
 
 export const masterHotkeyList = [

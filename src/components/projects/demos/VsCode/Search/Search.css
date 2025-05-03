@@ -1,0 +1,13 @@
+#vscodeApp_SearchContainer {
+    width: 80%;
+    margin: auto;
+    margin: 5vh auto;
+}
+
+#vscodeApp_Searchbar {
+    border-radius: 25px;
+    border: none;
+    height: 6.5vh;
+    padding: 10px 4vw;
+    width: 100%;
+}

@@ -1,15 +1,29 @@
 #vscodeApp_FiltersContainer {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     margin: auto;
     width: 80%;
 }
+
+#vscodeApp_FiltersContainer > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+#vscodeApp_FiltersContainer > div > svg {
+    margin-left: 5px;
+}
+
 #vscodeApp_FiltersContainer h3 {
-    margin: 5vh auto;
+    margin: 1vh auto;
 }
 
 #vscodeApp_Filters {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     width: 100%;
 }
@@ -44,5 +58,18 @@
 
 .vscodeApp_Filter.activeFilter {
     background-color: var(--vscodeApp_KeyBg);
+}
+
+.vscodeApp_Filter.system {
+    padding-inline: 2vw;
+}
+
+.vscodeApp_Filter.system svg {
+    margin-right: 1vw;
+}
+
+.vscodeApp_Filter.activeFilter.system {
+    /* color: var(--primary-gradient-highlight); */
+    /* border: 1px solid var(--primary-gradient-highlight); */
 }
 

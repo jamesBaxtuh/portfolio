@@ -1,48 +1,30 @@
 // External files
+import {useState, useMemo} from 'react';
+import { CiCircleChevDown as Down, CiCircleChevUp as Up } from "react-icons/ci";
 import { IoTrashOutline as Trash } from "react-icons/io5";
-import {useMemo} from 'react';
 import './Filters.css'
 
 // Utilities and Constants
-import {filters, activeFiltersObj} from '../../../../../data/content/projects/VsCode/vsCode';
+import {filters} from '../../../../../data/content/projects/VsCode/vsCode';
 
-const Filters = ({activeFilters, setActiveFilters, system, setSystem}) => {
-    /**
-        * Handles toggling of system-specific filters.
-        * @param {string} newSystem - The new state of system.
-        * @returns {void}
-    */
-    const handleSystemFilter = (newSystem) => {
-        const systemValue = newSystem === 'Mac Only' ? 'mac' : 'windows';
-        // Reset system state when user toggles same system filter
-        if (system === systemValue) {
-            setSystem("")
-        } else {
-            setSystem(systemValue);
-        }
-    }
-    
+const Filters = ({activeFilters, setActiveFilters}) => {
+    const [showFilters, setShowFilters] = useState(false);
+
     /**
         * Handles filter click events. 
         * @param {object} e - The event object from the click event.
         * @returns {void}
     */
     const onClick = (filter) => {
-        // System-specific filter handling
-        if (filter === 'Mac Only' || filter === 'PC Only') {
-            handleSystemFilter(filter);
+        // General filter
+        const filterPreviouslyActive = activeFilters.includes(filter);
+        if (filterPreviouslyActive) {
+            // Unset previously active filter 
+            setActiveFilters((previousState) => previousState.filter((activeFilter)=> activeFilter !== filter))
+        } else {
+            // Set filter as active
+            setActiveFilters((previousState) => [...previousState, filter]);
         }
-        // } else {
-            // General filter
-            const filterPreviouslyActive = activeFilters.includes(filter);
-            if (filterPreviouslyActive) {
-                // Unset previously active filter 
-                setActiveFilters((previousState) => previousState.filter((activeFilter)=> activeFilter !== filter))
-            } else {
-                // Set filter as active
-                setActiveFilters((previousState) => [...previousState, filter]);
-            }
-        // }
     }
 
     const activeFiltersMap = useMemo(() => {
@@ -54,8 +36,12 @@ const Filters = ({activeFilters, setActiveFilters, system, setSystem}) => {
 
     return (
       <div id='vscodeApp_FiltersContainer'>
-            <h3>Filters</h3>
-            <div id="vscodeApp_Filters">
+            <div>
+                <p>Filters</p>
+                {!showFilters ? <Down onClick={() => setShowFilters(true)} /> : <Up onClick={() => setShowFilters(false)}/>}
+            </div>
+            {showFilters && 
+                <div id="vscodeApp_Filters">
                 {filters.map((filter) => (
                     <button key={filter} onClick={() => onClick(filter)} aria-pressed={activeFiltersMap[filter]} className={activeFiltersMap[filter] ? "vscodeApp_Filter activeFilter" : "vscodeApp_Filter" }>
                         <span>
@@ -64,7 +50,8 @@ const Filters = ({activeFilters, setActiveFilters, system, setSystem}) => {
                         {activeFiltersMap[filter] && <Trash/>}
                     </button>
                 ))}
-            </div>
+                </div>
+            }
       </div>
     )
   }

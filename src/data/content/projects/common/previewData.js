@@ -5,7 +5,7 @@ const PREVIEW_DATA = [
 	{
 		title: "Project Cushman",
 		preview:
-			"A fully-functioning CRM and lead acquisition site designed, managed, and development by myself. Made for Cushman & Dunn.",
+			"A custom-built in-house web platform for customer management and acquisition. Designed and developed by myself. Made for Cushman & Dunn.",
 		attributes: [
 			ALL_SKILL_DATA["MERN"],
 			ALL_SKILL_DATA["RIRedux"],
