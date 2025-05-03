@@ -5,9 +5,9 @@ import confetti from 'canvas-confetti';
 
 // Utilities and Constants
 import random from '../../random';
-import { HEX_SNOW_COLORS } from '../../../data/misc/css';
+import { HEX_SNOW_COLORS } from '../../../data/global/css';
 import EGG_DATA from '../../../data/contexts/eggData';
-import { HEX_CONFETTI_COLORS } from '../../../data/misc/css';
+import { HEX_CONFETTI_COLORS } from '../../../data/global/css';
 
 export const getEggHint = (easterEggs) => {
 	let hintId;
@@ -22,12 +22,13 @@ export const getEggHint = (easterEggs) => {
 	return EGG_DATA[hintId].hint;
 };
 
-export const getEggMessage = (found, hints) => {
+export const getEggMessage = (found, hints, hintUsed) => {
 	const messages = {
 		'1-0':
 			"Nice job finding your first egg -- you didn't even need a hint! Keep searching, there are two more!",
 		'1-1':
-			'Nice job finding your first egg -- albeit with the help of a hint. Keep searching, there are two more!',
+			'Nice job finding your first egg -- looks like the hint really worked! Keep searching, there are two more!',
+		// "Nice job finding your first egg -- you used a hint but it was for a completely different egg! You must've been prepping for the next egg all along! Two more to go!",
 		'2-0':
 			'Wow! Two eggs found, no hints! Maybe I should look into hiring you! One more to go!',
 		'2-2':
@@ -141,11 +142,13 @@ export const snow = () => {
 export const findEgg = (id, state, dispatch) => {
 	const egg = EGG_DATA[id];
 	const alreadyFound = state.easterEggs.eggs[id].found;
+	const foundAt = Date.now();
 	if (!alreadyFound) {
 		dispatch({
 			type: 'FIND_EGG',
 			payload: {
-				foundAt: Date.now(),
+				// foundAt: Date.now(),
+				foundAt,
 				id: id,
 			},
 		});
@@ -167,4 +170,46 @@ export const findEgg = (id, state, dispatch) => {
 		default:
 			return;
 	}
+};
+
+// Egg.jsx
+const createDefaultStyles = function (status) {
+	const defaultStyles = {
+		fontSize: '14px',
+		zIndex: 100,
+	};
+
+	return status !== 'Hidden'
+		? {
+				...defaultStyles,
+				color: 'rgb(238 66 102)',
+		  }
+		: defaultStyles;
+};
+
+export const createEggSettings = function (easterEgg, isDemo) {
+	return {
+		status: easterEgg.found
+			? 'Discovered'
+			: easterEgg.hintUsed
+			? 'Hint'
+			: 'Hidden',
+		eggType: isDemo ? 'demo' : 'footer',
+		tooltip: {
+			content: !easterEgg.found
+				? !easterEgg.hintUsed
+					? `Use hint`
+					: 'Hint used'
+				: 'Egg found',
+			ariaLabel:
+				!easterEgg.found && !easterEgg.hintUsed
+					? `Use hint for the ${easterEgg.title} easter-egg.`
+					: easterEgg.hintUsed
+					? 'This hint has already been used!'
+					: 'Hint unnecessary, egg is already found!',
+			styles: createDefaultStyles(
+				easterEgg.found ? 'Discovered' : easterEgg.hintUsed ? 'Hint' : 'Hidden'
+			),
+		},
+	};
 };

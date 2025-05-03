@@ -1,0 +1,10 @@
+header {
+	align-items: center;
+	display: flex;
+	justify-content: space-around;
+	min-height: 100px;
+	max-height: 15vh;
+	padding: 10px 5vw;
+	transition: transform 0.3s ease-in-out;
+	width: 100%;
+}

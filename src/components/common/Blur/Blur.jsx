@@ -1,7 +1,7 @@
-const Blur = ({ children, blurRadius }) => {
+const BlurWrapper = ({ children, blurRadius, styles }) => {
 	return (
 		<div
-			style={{ backdropFilter: `blur(${blurRadius})` }}
+			style={{ ...styles, backdropFilter: `blur(${blurRadius})` }}
 			className='w-100 h-100'
 		>
 			{children}
@@ -9,4 +9,4 @@ const Blur = ({ children, blurRadius }) => {
 	);
 };
 
-export default Blur;
+export default BlurWrapper;

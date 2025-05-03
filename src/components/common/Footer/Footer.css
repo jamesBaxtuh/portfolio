@@ -1,0 +1,76 @@
+footer section.middle,
+footer aside {
+	min-height: 100%;
+	padding: 2.5%;
+	z-index: 100;
+}
+
+footer section.middle {
+	width: 50%;
+}
+
+footer section.middle > * {
+	margin-block: 2.5px;
+}
+
+footer section.middle p {
+	margin: 0;
+}
+
+footer section.middle > div:first-of-type {
+	font-size: 14px;
+}
+
+footer section.middle > div > a:hover,
+footer section.middle > div p:hover {
+	opacity: 0.6;
+}
+
+footer aside {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 25%;
+}
+
+/* footer .right > div {
+	border-radius: 2.5px;
+	max-width: fit-content;
+	padding: 1px;
+} */
+
+/* Underline From Center */
+.hvr-underline-from-center {
+	vertical-align: middle;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.hvr-underline-from-center:before {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	left: 51%;
+	right: 51%;
+	bottom: 0;
+	background: linear-gradient(
+		90deg,
+		rgba(131, 58, 180, 1) 0%,
+		rgba(253, 29, 29, 1) 50%,
+		rgba(252, 176, 69, 1) 100%
+	);
+	height: 2px;
+	-webkit-transition-property: left, right;
+	transition-property: left, right;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.175s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+.hvr-underline-from-center:hover:before,
+.hvr-underline-from-center:focus:before,
+.hvr-underline-from-center:active:before {
+	left: 0;
+	right: 0;
+}

@@ -1,6 +1,3 @@
-// Images and Styles
-import './Gradient.css';
-
 const GradientWrapper = ({ children, styles, autoSetBg = true }) => {
 	if (autoSetBg) {
 		return (

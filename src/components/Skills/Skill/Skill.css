@@ -2,15 +2,13 @@
 	border: none;
 	background-color: inherit;
 	margin-block: 2.5%;
-	width: 33%;
 }
 
 .skillIconContainer svg {
-	height: 50px;
 	transition: transform 0.2s ease-in-out;
-	width: 50px;
 }
 
-.skillIconContainer svg:hover {
+.skillIconContainer:hover svg {
 	transform: translateY(-2px);
+	color: red;
 }

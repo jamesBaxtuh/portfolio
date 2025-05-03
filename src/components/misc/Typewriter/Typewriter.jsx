@@ -77,11 +77,11 @@ const Typewriter = ({
 
 	return (
 		<div className='d-flex ai-center'>
-			<h1>
+			<h2>
 				{normalText}
 				<span className='fw-500 c-highlight'> {highlightText}</span>
 				<span className={`${isBlinking ? 'blinking' : ''}`}>|</span>
-			</h1>
+			</h2>
 		</div>
 	);
 };

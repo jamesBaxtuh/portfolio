@@ -3,6 +3,7 @@ import { getEggHint, getEggMessage } from '../../utils/contexts/user/eggUtils';
 import { createNewStateForPageTrack } from '../../utils/contexts/user/userUtils';
 import loadInitialState from '../../utils/contexts/loadInitialState';
 import defaultStates from '../../data/contexts/defaultStates';
+import calculateTimeFromMs from '../../utils/calculateTimeFromMs';
 
 export const initialState = loadInitialState('userContext');
 
@@ -33,16 +34,36 @@ export const userReducer = function (state, action) {
 		case 'FIND_EGG': {
 			const { foundAt, id } = action.payload;
 			const { easterEggs } = state;
+			const foundEgg = easterEggs.eggs[id];
+			console.log(
+				'originalTime:',
+				new Date(foundEgg.startTime).toString(),
+				'\nTime in Ms:',
+				foundEgg.startTime
+			);
+			console.log(
+				'foundAt:',
+				new Date(foundAt).toString(),
+				'\nTime in Ms:',
+				foundAt
+			);
+			console.log(
+				'Difference:',
+				foundAt - foundEgg.startTime,
+				`\nTime diff:`,
+				calculateTimeFromMs(foundAt - foundEgg.startTime)
+			);
 
+			return state;
 			// Make sure egg hasn't already been found
-			if (easterEggs.eggs[id].found) {
+			if (foundEgg.found) {
 				return state;
 			}
 
 			const eggEntry = {
 				id,
-				hintUsed: easterEggs.hintMessage !== null,
-				timeUsed: foundAt - easterEggs.timer,
+				hintUsed: foundEgg.hintUsed,
+				timeUsed: foundAt - foundEgg.startTime,
 			};
 
 			// Updated values
@@ -56,7 +77,7 @@ export const userReducer = function (state, action) {
 			const updatedEggData = {
 				...easterEggs.eggs,
 				[id]: {
-					...easterEggs.eggs[id],
+					...foundEgg,
 					found: true,
 				},
 			};
@@ -76,7 +97,10 @@ export const userReducer = function (state, action) {
 		}
 		case 'USE_HINT': {
 			const { easterEggs } = state;
-			const hintMessage = getEggHint(easterEggs);
+			const previousEggState = easterEggs.eggs[action.payload];
+
+			if (previousEggState.hintUsed || previousEggState.found) return state;
+
 			// Updated value
 			const updatedHintCount = easterEggs.hints + 1;
 
@@ -84,8 +108,14 @@ export const userReducer = function (state, action) {
 				...state,
 				easterEggs: {
 					...easterEggs,
+					eggs: {
+						...easterEggs.eggs,
+						[action.payload]: {
+							...previousEggState,
+							hintUsed: true,
+						},
+					},
 					hints: updatedHintCount,
-					hintMessage,
 				},
 			};
 		}

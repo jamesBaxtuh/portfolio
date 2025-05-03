@@ -5,7 +5,7 @@ const Socials = ({ socials, parent }) => {
 	return (
 		<div id='socialsContainer' className='d-flex jc-center ai-center'>
 			{socials.map((social) => {
-				const { link, ReactIcon, id } = social;
+				const { link, Icon, id } = social;
 				return (
 					<a
 						href={link}
@@ -13,7 +13,7 @@ const Socials = ({ socials, parent }) => {
 						rel='noopener noreferrer'
 						key={`${parent}${id}`}
 					>
-						{ReactIcon ? <ReactIcon /> : null}
+						{Icon ? <Icon /> : null}
 					</a>
 				);
 			})}

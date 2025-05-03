@@ -1,15 +1,15 @@
 // Utilities and Constants
-import SKILL_DATA from '../../data/misc/skillData';
-import { PROJECT_CUSHMAN } from '../../data/misc/projectData';
+import { HOME_SKILL_DATA } from '../../data/content/common/skillData.js';
 import {
 	HOME_LEFT_CARDS,
 	HOME_RIGHT_CARDS,
-} from '../../data/misc/homeCardData.js';
+} from '../../data/content/views/Home/homeCardData.js';
+import useImagePreloader from '../../hooks/useImagePreloader.js';
 
 // Components
 import ContentWrapper from '../../components/common/wrappers/Content/Content.jsx';
-import Blur from '../../components/common/Blur/Blur.jsx';
-import Spotlight from '../../components/Project/Spotlight/Spotlight';
+import BlurWrapper from '../../components/common/Blur/Blur.jsx';
+import Spotlight from '../../components/projects/common/Spotlight/Spotlight.jsx';
 import Cards from '../../components/Cards/Cards.jsx';
 import Skills from '../../components/Skills/Skills/Skills.jsx';
 import Triangle from '../../components/common/shapes/rounded/RightTriangle.jsx';
@@ -19,9 +19,10 @@ import Diamond from '../../components/common/shapes/rounded/Diamond.jsx';
 import './Home.css';
 
 export default function Home() {
+	useImagePreloader(["https://res.cloudinary.com/thatcloudisbuff/image/upload/v1710040498/oklrmtnoqbptaqtwsobr.jpg"])
 	return (
 		<div>
-			<ContentWrapper>
+			<ContentWrapper style={{ overflowX: 'visible' }}>
 				<section id='homeIntro'>
 					<h1>Nicholas Dunn</h1>
 					<p className='fw-300'>U.S. Based Fullstack Developer</p>
@@ -37,16 +38,18 @@ export default function Home() {
 					</div>
 					<div className='d-flex fd-col'>
 						<Cards data={HOME_RIGHT_CARDS} textAlign='right' />
-						<Skills skillData={SKILL_DATA} easterEgg={true} />
+						<Skills skillData={HOME_SKILL_DATA} isEasterEgg={true} />
 					</div>
 				</section>
 			</ContentWrapper>
 			<ContentWrapper
-				styles={{
-					backgroundColor: 'var(--primary-color-2)',
-				}}
+				styles={
+					{
+						// backgroundColor: 'var(--primary-color-2)',
+					}
+				}
 			>
-				<section className='w-100 pos-rel of-hidden'>
+				<section className='w-100 pos-rel of-hidden spotlightSection'>
 					<Triangle
 						key='t1'
 						id='t1'
@@ -97,9 +100,9 @@ export default function Home() {
 							colorTwo: 'var(--shape-2-color-1)',
 						}}
 					/>
-					<Blur blurRadius='7.5px'>
-						<Spotlight projectData={PROJECT_CUSHMAN} />
-					</Blur>
+					<BlurWrapper blurRadius='7.5px'>
+						<Spotlight />
+					</BlurWrapper>
 				</section>
 			</ContentWrapper>
 		</div>
